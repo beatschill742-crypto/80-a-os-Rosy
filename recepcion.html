@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recepción - 80 Años Rosy</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #fcf9f5;
+            color: #4a3b3c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            /* Fondo floral movido aquí para que no rompa el Preview */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.83-2.618 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0L47.393 9.09l-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414L43.726-1.228l1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0L54.627 0zM12.657 0l.828.83-2.617 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0L4.42 9.09l-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414L.754-1.228 2.168-2.642l5.456 5.456a1 1 0 0 0 1.414 0L12.657 0zm41.97 41.97l.83.828-2.618 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0l-2.617 2.618-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414l-5.456-5.456 1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0l2.618-2.617zm-41.97 0l.828.828-2.617 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0l-2.617 2.618-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414l-5.456-5.456 1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0l2.618-2.617zM28.02 28.02l.83.828-2.618 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0l-2.617 2.618-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414l-5.456-5.456 1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0l2.618-2.617z' fill='%23a44558' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .font-serif-elegant { font-family: 'Cinzel', serif; }
+        
+        .vintage-border {
+            position: relative;
+            border: 2px solid #cca358;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        .vintage-border::before, .vintage-border::after {
+            content: ''; position: absolute; width: 30px; height: 30px; border: 2px solid #cca358;
+        }
+        .vintage-border::before { top: -6px; left: -6px; border-right: none; border-bottom: none; }
+        .vintage-border::after { bottom: -6px; right: -6px; border-left: none; border-top: none; }
+    </style>
+</head>
+
+<body class="p-6">
+
+    <div class="max-w-md w-full bg-white rounded-md shadow-2xl p-10 text-center border-t-8 border-[#a44558] relative">
+        <div class="absolute inset-4 vintage-border pointer-events-none"></div>
+
+        <i data-lucide="check-circle-2" class="w-16 h-16 text-[#cca358] mx-auto mb-4 relative z-10"></i>
+        
+        <h2 class="font-serif-elegant text-3xl text-[#a44558] mb-2 font-bold relative z-10">Pase Validado</h2>
+        <p class="text-xs uppercase tracking-[0.2em] text-gray-400 mb-8 border-b border-[#cca358]/30 pb-4 relative z-10">Recepción - 80 Años Rosy</p>
+        
+        <div class="bg-[#fcf9f5] border border-[#cca358]/40 rounded-sm p-6 mb-8 shadow-inner relative z-10">
+            <p class="text-[9px] uppercase tracking-widest text-[#cca358] font-bold mb-2">Identidad del Invitado:</p>
+            <!-- Este nombre cambiará dinámicamente cuando lean el QR -->
+            <p id="nombre-recepcion" class="font-serif-elegant text-2xl text-[#4a3b3c] font-bold mb-5">Invitado de Honor</p>
+            
+            <div class="inline-flex items-center justify-center bg-[#a44558] text-white px-8 py-2 rounded-sm font-bold shadow-md border border-[#7d3342]">
+                <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                <span id="boletos-recepcion" class="text-sm uppercase tracking-widest">1 Persona</span>
+            </div>
+        </div>
+        
+        <p class="text-[10px] text-gray-500 font-medium uppercase tracking-widest relative z-10">Favor de permitir el acceso a la celebración.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            // Leemos los datos desde la URL (lo que arroja el QR al escanearse)
+            const params = new URLSearchParams(window.location.search);
+            const invitado = params.get('invitado') || 'Invitado de Honor';
+            const boletos = params.get('boletos') || '1';
+            
+            // Actualizamos la pantalla de recepción
+            document.getElementById('nombre-recepcion').innerText = invitado.toUpperCase();
+            document.getElementById('boletos-recepcion').innerText = boletos + (boletos === '1' ? ' Persona' : ' Personas');
+        });
+    </script>
+</body>
+</html>
