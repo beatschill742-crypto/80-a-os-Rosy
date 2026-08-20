@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>80 Años - Celebrando a Rosy</title>
     
+    <!-- Etiquetas Meta para la Miniatura de WhatsApp -->
+    <meta property="og:title" content="80 Años - Celebrando a Rosy">
+    <meta property="og:description" content="Estás cordialmente invitado a celebrar esta hermosa etapa de su vida. Abre tu pase VIP aquí.">
+    <meta property="og:image" content="https://beatschill742-crypto.github.io/cumple-rosy-80/rosy-1.jpeg">
+    <meta property="og:url" content="https://beatschill742-crypto.github.io/cumple-rosy-80/">
+    <meta property="og:type" content="website">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -16,18 +23,16 @@
     <style>
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-color: #fcf9f5; /* Fondo Crema cálido */
+            background-color: #fcf9f5; 
             color: #4a3b3c; 
             overflow-x: hidden;
         }
         .font-serif-elegant { font-family: 'Cinzel', serif; }
         .font-cursive { font-family: 'Great Vibes', cursive; }
         
-        /* Paleta de Colores de la Invitación */
-        .text-rose { color: #a44558; } /* Borgoña / Palo de rosa fuerte */
-        .text-gold { color: #cca358; } /* Dorado viejo */
+        .text-rose { color: #a44558; } 
+        .text-gold { color: #cca358; } 
         .bg-rose { background-color: #a44558; }
-        .bg-gold { background-color: #cca358; }
         .border-rose { border-color: #a44558; }
         .border-gold { border-color: #cca358; }
 
@@ -37,7 +42,6 @@
             -webkit-text-fill-color: transparent; 
         }
 
-        /* Marcos y Bordes Vintage */
         .vintage-border {
             position: relative;
             border: 2px solid #cca358;
@@ -50,7 +54,6 @@
         .vintage-border::before { top: -6px; left: -6px; border-right: none; border-bottom: none; }
         .vintage-border::after { bottom: -6px; right: -6px; border-left: none; border-top: none; }
 
-        /* Efecto Sobre */
         #envelope-screen {
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
             background-color: #1a1516; 
@@ -75,29 +78,27 @@
         .wax-seal {
             background: radial-gradient(circle, #c76579, #a44558);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.2);
-            z-index: 20; border: 1px solid #7d3342;
+            z-index: 20; border: 1px solid #7d3342; cursor: pointer;
         }
 
-        /* Lluvia de Rosas y Pétalos */
+        /* Efecto visual de Rosas Cayendo */
         .falling-rose {
             position: fixed; top: -10vh; z-index: 40; pointer-events: none; user-select: none;
-            animation: fall-sway linear forwards; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            animation: fall-sway linear forwards; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         @keyframes fall-sway {
             0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
+            10% { opacity: 0.9; }
+            80% { opacity: 0.9; }
             100% { transform: translateY(110vh) rotate(360deg) translateX(50px); opacity: 0; }
         }
 
         .fade-in-up { animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(30px); }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-        /* Galería Lightbox Zoom */
         .gallery-img { transition: transform 0.4s ease; cursor: pointer; object-fit: cover; }
         .gallery-img:hover { transform: scale(1.05); }
 
-        /* Patrón de fondo floral sutil */
         .bg-floral {
             background-color: #fcf9f5;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.83-2.618 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0L47.393 9.09l-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414L43.726-1.228l1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0L54.627 0zM12.657 0l.828.83-2.617 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0L4.42 9.09l-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414L.754-1.228 2.168-2.642l5.456 5.456a1 1 0 0 0 1.414 0L12.657 0zm41.97 41.97l.83.828-2.618 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0l-2.617 2.618-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414l-5.456-5.456 1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0l2.618-2.617zm-41.97 0l.828.828-2.617 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0l-2.617 2.618-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414l-5.456-5.456 1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0l2.618-2.617zM28.02 28.02l.83.828-2.618 2.617a1 1 0 0 0 0 1.414l5.456 5.456-1.414 1.414-5.456-5.456a1 1 0 0 0-1.414 0l-2.617 2.618-.828-.828 2.617-2.618a1 1 0 0 0 0-1.414l-5.456-5.456 1.414-1.414 5.456 5.456a1 1 0 0 0 1.414 0l2.618-2.617z' fill='%23a44558' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -107,7 +108,7 @@
 
 <body x-data="invitationApp()" x-init="initApp()" class="relative antialiased bg-floral" id="body-container">
 
-    <!-- Modal de Galería (Pantalla Completa) -->
+    <!-- Modal de la Galería (Lightbox) -->
     <div x-show="imgModal" x-cloak class="fixed inset-0 z-[150] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm" @keydown.escape.window="imgModal = false">
         <button @click="imgModal = false" class="absolute top-6 right-6 text-white hover:text-gray-300 z-50 bg-black/50 p-2 rounded-full">
             <i data-lucide="x" class="w-8 h-8"></i>
@@ -115,7 +116,7 @@
         <img :src="imgModalSrc" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl transition-transform duration-300" @click.away="imgModal = false">
     </div>
 
-    <!-- SOBRE VIRTUAL -->
+    <!-- EL SOBRE DE INICIO -->
     <div id="envelope-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center relative overflow-hidden">
         <div class="text-center mb-10 px-4 animate-pulse relative z-20 mt-10">
             <p class="font-serif-elegant text-gold tracking-[0.2em] text-xs md:text-sm uppercase mb-3 drop-shadow-md">Invitación de Honor Para:</p>
@@ -135,12 +136,10 @@
         </div>
     </div>
 
-    <!-- PORTADA (HERO) -->
+    <!-- PORTADA -->
     <header class="min-h-[90vh] flex flex-col items-center justify-center relative px-6 text-center pt-10">
-        <!-- Marco Decorativo -->
         <div class="absolute inset-4 md:inset-8 vintage-border pointer-events-none"></div>
         
-        <!-- Elementos Florales (CSS) -->
         <div class="absolute top-0 left-0 w-48 h-48 opacity-40 pointer-events-none" style="background: radial-gradient(circle at top left, #a44558 0%, transparent 70%);"></div>
         <div class="absolute bottom-0 right-0 w-48 h-48 opacity-40 pointer-events-none" style="background: radial-gradient(circle at bottom right, #a44558 0%, transparent 70%);"></div>
 
@@ -189,11 +188,8 @@
         </div>
     </header>
 
-    <!-- GALERÍA DE 13 FOTOS -->
-    <section class="py-20 px-4 bg-white border-y border-rose/10 relative">
-        <!-- Patrón floral sutil superior e inferior -->
-        <div class="absolute top-0 left-0 w-full h-10 opacity-30" style="background-image: radial-gradient(circle at 50% -10px, #a44558 10px, transparent 11px); background-size: 40px 20px; background-repeat: repeat-x;"></div>
-
+    <!-- GALERÍA DE FOTOS -->
+    <section class="py-20 px-4 bg-white border-y border-rose/10 relative z-20">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="font-cursive text-5xl text-rose mb-3">Toda una vida</h2>
@@ -201,60 +197,55 @@
                 <p class="text-[9px] text-gray-400 mt-2 uppercase tracking-widest">* Toca cualquier foto para verla completa *</p>
             </div>
             
-            <!-- Grid de 13 Fotos (Diseño elegante) -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-                
-                <!-- Para que sean 13 exactas y no queden huecos feos, jugaremos con los espacios -->
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56 col-span-2 md:col-span-2">
-                    <img src="rosy-1.jpeg" alt="Recuerdo 1" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-1.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1549471013-3364d73206c3?auto=format&fit=crop&q=80&w=600'">
+                    <img src="rosy-1.jpeg" alt="Recuerdo 1" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-1.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56">
-                    <img src="rosy-2.jpeg" alt="Recuerdo 2" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-2.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-2.jpeg" alt="Recuerdo 2" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-2.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56 hidden lg:block">
-                    <img src="rosy-3.jpeg" alt="Recuerdo 3" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-3.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-3.jpeg" alt="Recuerdo 3" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-3.jpeg'">
                 </div>
                 
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56">
-                    <img src="rosy-4.jpeg" alt="Recuerdo 4" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-4.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-4.jpeg" alt="Recuerdo 4" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-4.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56">
-                    <img src="rosy-5.jpeg" alt="Recuerdo 5" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-5.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-5.jpeg" alt="Recuerdo 5" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-5.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56">
-                    <img src="rosy-6.jpeg" alt="Recuerdo 6" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-6.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1536882240095-0379873feb4e?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-6.jpeg" alt="Recuerdo 6" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-6.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56">
-                    <img src="rosy-7.jpeg" alt="Recuerdo 7" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-7.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1616489953149-60195c69255a?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-7.jpeg" alt="Recuerdo 7" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-7.jpeg'">
                 </div>
 
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56 col-span-2 md:col-span-1">
-                    <img src="rosy-8.jpeg" alt="Recuerdo 8" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-8.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1542042161784-26ab9e041e89?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-8.jpeg" alt="Recuerdo 8" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-8.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56">
-                    <img src="rosy-9.jpeg" alt="Recuerdo 9" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-9.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-9.jpeg" alt="Recuerdo 9" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-9.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56">
-                    <img src="rosy-10.jpeg" alt="Recuerdo 10" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-10.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-10.jpeg" alt="Recuerdo 10" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-10.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-40 md:h-56 hidden lg:block lg:col-span-1">
-                    <img src="rosy-11.jpeg" alt="Recuerdo 11" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-11.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=80&w=400'">
+                    <img src="rosy-11.jpeg" alt="Recuerdo 11" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-11.jpeg'">
                 </div>
 
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-48 md:h-64 col-span-2 md:col-span-3 lg:col-span-2">
-                    <img src="rosy-12.jpeg" alt="Recuerdo 12" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-12.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800'">
+                    <img src="rosy-12.jpeg" alt="Recuerdo 12" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-12.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded shadow-md border border-[#f5efe6] h-48 md:h-64 col-span-2 md:col-span-3 lg:col-span-2">
-                    <img src="rosy-13.jpeg" alt="Recuerdo 13" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-13.jpeg'" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800'">
+                    <img src="rosy-13.jpeg" alt="Recuerdo 13" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy-13.jpeg'">
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- PASE DE ACCESO DIGITAL -->
+    <!-- PASE DE ACCESO -->
     <section id="pase-acceso" class="py-24 px-4 bg-[#2b2123] relative text-white">
-        <!-- Decoración Fondo Oscuro -->
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#cca358 1px, transparent 1px); background-size: 30px 30px;"></div>
         
         <div class="max-w-md mx-auto relative z-10">
@@ -301,10 +292,10 @@
         </div>
     </section>
 
-    <!-- REPRODUCTOR DE MÚSICA -->
+    <!-- MÚSICA DE FONDO -->
     <audio id="bg-music" loop preload="auto">
-        <!-- Cambia aquí el nombre de la canción si lo necesitas -->
-        <source src="cancion.mp3#t=20" type="audio/mpeg">
+        <!-- El archivo debe llamarse EXACTAMENTE cancion.mp3 -->
+        <source src="cancion.mp3" type="audio/mpeg">
     </audio>
 
     <button id="music-control" class="fixed bottom-6 right-6 z-50 bg-[#fcf9f5] text-rose w-14 h-14 rounded-full shadow-[0_4px_20px_rgba(164,69,88,0.3)] hover:bg-rose hover:text-white transition-all border border-rose/30 flex items-center justify-center animate-pulse">
@@ -317,42 +308,44 @@
         let invitadoUrl = "Invitado Especial";
         let boletosUrl = "2";
 
-        // Lluvia de Rosas y Pétalos
+        // ANIMACIÓN DE ROSAS CAYENDO MEJORADA
         function generarRosas() {
-            // Emojis de rosas y flores acordes al diseño
-            const rosas = ['🌸', '🌺', '🌹', '✨', '💮']; 
-            
+            // Emoticones más grandes y variados
+            const rosas = ['🌸', '🌺', '🌹', '✨', '💖']; 
             setInterval(() => {
                 const r = document.createElement('div');
                 r.className = 'falling-rose';
                 r.innerText = rosas[Math.floor(Math.random() * rosas.length)];
                 r.style.left = Math.random() * 100 + 'vw';
-                // Variar tamaños para dar profundidad
-                r.style.fontSize = (Math.random() * 15 + 10) + 'px'; 
-                // Caen entre 8 y 14 segundos
-                r.style.animationDuration = (Math.random() * 6 + 8) + 's'; 
-                
+                r.style.fontSize = (Math.random() * 30 + 20) + 'px'; // Rosas mucho más grandes (20 a 50px)
+                r.style.animationDuration = (Math.random() * 4 + 6) + 's'; // Caen más rápido
+                r.style.opacity = Math.random() * 0.5 + 0.5; // Brillo aleatorio
                 document.body.appendChild(r);
                 
-                setTimeout(() => r.remove(), 15000); 
-            }, 600); // Genera una nueva cada 0.6 segundos
+                // Borrar la rosa de la memoria cuando termine de caer
+                setTimeout(() => r.remove(), 10000); 
+            }, 300); // Cae una rosa nueva cada 300ms (¡Lluvia tupida!)
         }
 
+        // LÓGICA DE MÚSICA EXACTA AL SEGUNDO 20
         const iniciarMusica = () => {
             if (bgMusic && !isPlaying) {
                 try { if(bgMusic.currentTime < 20) bgMusic.currentTime = 20; } catch(e){}
+                
                 bgMusic.play().then(() => {
                     isPlaying = true;
                     if(musicControl) musicControl.classList.remove('animate-pulse');
                     if(musicIcon) musicIcon.setAttribute('data-lucide', 'volume-2');
                     lucide.createIcons();
-                }).catch(e => console.log("El navegador espera interacción", e));
+                }).catch(e => console.log("El navegador espera interacción de toque", e));
             }
         };
 
-        document.addEventListener('click', iniciarMusica, { once: true });
-        document.addEventListener('touchstart', iniciarMusica, { once: true });
+        // Cualquier toque en la pantalla iniciará la música obligatoriamente
+        document.body.addEventListener('click', iniciarMusica, { once: true });
+        document.body.addEventListener('touchstart', iniciarMusica, { once: true });
 
+        // Función que se activa al tocar el sello del sobre
         window.abrirSobre = function() {
             document.getElementById('envelope-screen').classList.add('envelope-open');
             document.getElementById('body-container').classList.remove('overflow-hidden');
@@ -370,13 +363,15 @@
             }, 50);
         }
 
+        // CONTROL DE ALPINE JS Y EL CÓDIGO QR
         window.invitationApp = function() {
             return {
                 imgModal: false,
                 imgModalSrc: '',
                 
                 initApp() {
-                    const params = new URLSearchParams(window.location.search);
+                    // Cargar parámetros de la URL
+                    const params = newSearchParams(window.location.search);
                     if (params.has('nombre')) invitadoUrl = params.get('nombre').toUpperCase();
                     if (params.has('boletos')) boletosUrl = params.get('boletos');
                     
@@ -384,7 +379,12 @@
                     document.getElementById('nombre-display').innerText = invitadoUrl;
                     document.getElementById('boletos-display').innerText = boletosUrl;
 
-                    const enlaceRecepcion = window.location.href.split('?')[0].replace('index.html', '') + "recepcion.html?invitado=" + encodeURIComponent(invitadoUrl) + "&boletos=" + encodeURIComponent(boletosUrl);
+                    // Crear el enlace seguro para el QR de la Hostess
+                    let urlBase = window.location.href.split('?')[0].replace('index.html', '');
+                    if (!urlBase.endsWith('/')) {
+                        urlBase += '/';
+                    }
+                    const enlaceRecepcion = urlBase + "recepcion.html?invitado=" + encodeURIComponent(invitadoUrl) + "&boletos=" + encodeURIComponent(boletosUrl);
                     
                     new QRCode(document.getElementById("qrcode-container"), { 
                         text: enlaceRecepcion, 
@@ -393,6 +393,7 @@
                         correctLevel : QRCode.CorrectLevel.M 
                     });
 
+                    // Iniciar íconos, música y lluvia de rosas
                     lucide.createIcons(); 
                     this.setupMusic();
                     generarRosas();
