@@ -51,39 +51,6 @@
             background-position: center;
         }
 
-        /* Lluvia de Rosas Animadas */
-        .falling-rose {
-            position: fixed;
-            top: -10vh;
-            z-index: 40;
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear forwards;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-        }
-        @keyframes fall { 
-            0% { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 0; } 
-            10% { opacity: 0.9; }
-            90% { opacity: 0.9; }
-            100% { transform: translateY(110vh) rotate(360deg) translateX(150px); opacity: 0; } 
-        }
-
-        /* Destellos Mágicos Nuevos */
-        .sparkle-effect {
-            position: fixed;
-            width: 4px; height: 4px;
-            background-color: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 15px 5px rgba(204, 163, 88, 0.8);
-            z-index: 35; pointer-events: none;
-            animation: twinkle 3s ease-in-out forwards;
-        }
-        @keyframes twinkle {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.5); opacity: 1; }
-            100% { transform: scale(0); opacity: 0; }
-        }
-
         /* El Sobre Virtual */
         #envelope-screen {
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
@@ -141,53 +108,6 @@
         }
         @keyframes shoot { 0% { left: -50px; top: 30px; opacity: 1; } 15%, 100% { left: 120%; top: 150px; opacity: 0; } }
 
-        /* =========================================================
-           NUEVA ANIMACIÓN PIXAR: LAS ESTACIONES DE LA VIDA
-           ========================================================= */
-        .seasons-stage { 
-            background-color: #87CEEB; 
-            animation: timePassage 16s ease-in-out infinite; 
-            position: relative; 
-        }
-        @keyframes timePassage {
-            0%, 100% { background-color: #87CEEB; } /* Primavera (Amanecer) */
-            25% { background-color: #4facfe; } /* Verano (Día) */
-            50% { background-color: #e65c00; } /* Otoño (Atardecer) */
-            75% { background-color: #2b1115; } /* Invierno (Noche) */
-        }
-        .celestial-body {
-            position: absolute; width: 60px; height: 60px; border-radius: 50%;
-            animation: sunMoon 16s linear infinite;
-        }
-        @keyframes sunMoon {
-            0%, 100% { left: -10%; top: 60%; background: #FFD700; box-shadow: 0 0 40px #FFD700; }
-            25% { left: 50%; top: 10%; transform: translateX(-50%); background: #FFF5EE; box-shadow: 0 0 50px #FFF5EE; }
-            50% { left: 110%; top: 60%; background: #FF8C00; box-shadow: 0 0 40px #FF8C00; }
-            75% { left: 50%; top: 20%; transform: translateX(-50%); background: #F0F8FF; box-shadow: 0 0 30px #F0F8FF; } /* Luna */
-        }
-        .life-tree {
-            position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-            width: 200px; height: 220px; z-index: 10;
-        }
-        .leaf { animation: leafColor 16s ease-in-out infinite; }
-        @keyframes leafColor {
-            0%, 100% { fill: #81c784; opacity: 0.9; } /* Verde Primavera */
-            25% { fill: #4CAF50; opacity: 1; } /* Verde Verano */
-            50% { fill: #FF9800; opacity: 0.85; } /* Naranja Otoño */
-            75% { fill: #ffffff; opacity: 0.7; } /* Blanco Invierno */
-        }
-        .ground-hill {
-            position: absolute; bottom: -50px; left: -10%; width: 120%; height: 100px;
-            background: #2E7D32; border-radius: 50%;
-            animation: groundColor 16s ease-in-out infinite; z-index: 5;
-        }
-        @keyframes groundColor {
-            0%, 100% { background: #4CAF50; } 
-            25% { background: #2E7D32; } 
-            50% { background: #8D6E63; } 
-            75% { background: #CFD8DC; } 
-        }
-
         /* Estilos Generales */
         .gallery-img { cursor: pointer; transition: transform 0.4s ease; object-fit: cover; }
         .gallery-img:hover { transform: scale(1.05); }
@@ -225,9 +145,6 @@
     </div>
 
     <header class="hero-bg min-h-screen flex flex-col items-center justify-center relative px-4 text-center border-b-8 border-[#a44558] pt-10 pb-16">
-        <img src="https://cdn-icons-png.flaticon.com/512/3712/3712192.png" alt="flor" class="absolute top-4 left-4 w-28 md:w-40 opacity-20 transform -scale-x-100 pointer-events-none">
-        <img src="https://cdn-icons-png.flaticon.com/512/3712/3712192.png" alt="flor" class="absolute top-4 right-4 w-28 md:w-40 opacity-20 pointer-events-none">
-
         <div class="relative z-10 flex flex-col items-center fade-in-up mt-8">
             <p class="font-serif-elegant text-sm md:text-base uppercase tracking-[0.3em] text-gray-600 mb-2 font-bold">Celebremos la vida de</p>
             
@@ -258,38 +175,33 @@
         </div>
     </header>
 
-    <section class="py-20 px-4 bg-white flex flex-col items-center justify-center relative overflow-hidden border-b border-[#f5efe6]">
-        <div class="text-center mb-10 relative z-10 max-w-2xl mx-auto">
-            <i data-lucide="leaf" class="w-8 h-8 text-[#cca358] mx-auto mb-4"></i>
-            <h3 class="font-cursive text-5xl md:text-6xl text-rose mb-4 drop-shadow-sm">El Ciclo de la Vida</h3>
-            <p class="font-serif-elegant text-sm md:text-base text-gray-600 font-light italic px-4 leading-relaxed">
-                "Envejecer es un privilegio. Es ver cómo la primavera de la juventud florece hasta convertirse en la hermosa y dorada sabiduría del otoño."
-            </p>
-        </div>
-
-        <div class="seasons-stage relative w-full max-w-3xl h-64 md:h-80 mx-auto rounded-3xl border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden">
-            <!-- Cielo animado y Sol/Luna -->
-            <div class="celestial-body"></div>
-
-            <!-- Árbol Mágico Animado con SVG -->
-            <div class="life-tree">
-                <svg viewBox="0 0 200 220" width="100%" height="100%">
-                    <!-- Tronco -->
-                    <path d="M90 220 Q95 150 100 120 Q105 150 110 220 Z" fill="#5D4037"/>
-                    <path d="M100 120 Q70 80 50 60" stroke="#5D4037" stroke-width="8" fill="none" stroke-linecap="round"/>
-                    <path d="M100 120 Q130 80 150 60" stroke="#5D4037" stroke-width="8" fill="none" stroke-linecap="round"/>
-                    <path d="M100 120 Q100 70 100 40" stroke="#5D4037" stroke-width="10" fill="none" stroke-linecap="round"/>
-                    
-                    <!-- Hojas animadas -->
-                    <circle cx="50" cy="50" r="30" class="leaf"/>
-                    <circle cx="150" cy="50" r="30" class="leaf" style="animation-delay: -2s;"/>
-                    <circle cx="100" cy="30" r="35" class="leaf" style="animation-delay: -4s;"/>
-                    <circle cx="75" cy="80" r="25" class="leaf" style="animation-delay: -6s;"/>
-                    <circle cx="125" cy="80" r="25" class="leaf" style="animation-delay: -8s;"/>
-                </svg>
+    <section class="py-16 px-4 bg-white text-center border-b border-[#f5efe6]">
+        <h2 class="font-serif-elegant text-2xl md:text-3xl text-rose mb-8 font-bold">La Cuenta Regresiva</h2>
+        <div class="flex justify-center gap-4 md:gap-8 max-w-lg mx-auto">
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-gold/40 flex items-center justify-center shadow-inner mb-2 bg-[#fdfaf6]">
+                    <span class="font-serif-elegant text-2xl md:text-3xl text-gray-800 font-bold" x-text="days">00</span>
+                </div>
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Días</span>
             </div>
-            
-            <div class="ground-hill"></div>
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-gold/40 flex items-center justify-center shadow-inner mb-2 bg-[#fdfaf6]">
+                    <span class="font-serif-elegant text-2xl md:text-3xl text-gray-800 font-bold" x-text="hours">00</span>
+                </div>
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Horas</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-gold/40 flex items-center justify-center shadow-inner mb-2 bg-[#fdfaf6]">
+                    <span class="font-serif-elegant text-2xl md:text-3xl text-gray-800 font-bold" x-text="minutes">00</span>
+                </div>
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Mins</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border border-gold/40 flex items-center justify-center shadow-inner mb-2 bg-[#fdfaf6]">
+                    <span class="font-serif-elegant text-2xl md:text-3xl text-gray-800 font-bold" x-text="seconds">00</span>
+                </div>
+                <span class="text-[9px] uppercase tracking-widest text-gray-500 font-bold">Segs</span>
+            </div>
         </div>
     </section>
 
@@ -322,9 +234,6 @@
     </section>
 
     <section class="py-24 px-4 bg-white relative overflow-hidden">
-        <img src="https://cdn-icons-png.flaticon.com/512/3712/3712192.png" alt="flor" class="absolute -bottom-10 -left-10 w-48 opacity-10 pointer-events-none">
-        <img src="https://cdn-icons-png.flaticon.com/512/3712/3712192.png" alt="flor" class="absolute -bottom-10 -right-10 w-48 opacity-10 transform -scale-x-100 pointer-events-none">
-
         <div class="max-w-2xl mx-auto text-center relative z-10">
             <h2 class="font-serif-elegant text-3xl md:text-4xl text-rose mb-8 font-bold">Cuándo y Dónde</h2>
             
@@ -359,7 +268,7 @@
         <div class="max-w-3xl mx-auto">
             <h2 class="font-serif-elegant text-3xl md:text-4xl text-rose text-center mb-6 font-bold">Mesa de Regalos</h2>
             <p class="text-sm text-center text-gray-600 mb-10 max-w-lg mx-auto leading-relaxed">
-                Tu presencia es el regalo más invaluable y hermoso que Rosy puede recibir en este día tan especial. Sin embargo, si nace de tu corazón tener un detalle adicional, agradecemos infinitamente tu aportación voluntaria.
+                Nos honra contar con su presencia en este día tan especial; su compañía es el mejor regalo. Rosy prefiere no recibir obsequios físicos; si lo desean, pueden hacer una aportación voluntaria, que ella destinará a cumplir un objetivo muy personal y significativo.
             </p>
 
             <div class="max-w-md mx-auto bg-white border-2 border-dashed border-gold rounded-2xl p-8 text-center shadow-xl">
@@ -391,17 +300,15 @@
             <p class="text-xs text-gray-500 mb-12 uppercase tracking-widest font-bold">Toca cualquier foto para ampliarla</p>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-                <!-- Se omiten la 2 y la 7, se añade la 14 -->
-                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56 col-span-2 md:col-span-2">
+                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56 col-span-2">
                     <img src="rosy 1.jpeg" alt="Recuerdo 1" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 1.jpeg'">
                 </div>
-                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56 hidden lg:block">
+                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56">
                     <img src="rosy 3.jpeg" alt="Recuerdo 3" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 3.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56">
                     <img src="rosy 4.jpeg" alt="Recuerdo 4" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 4.jpeg'">
                 </div>
-                
                 <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56">
                     <img src="rosy 5.jpeg" alt="Recuerdo 5" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 5.jpeg'">
                 </div>
@@ -411,18 +318,10 @@
                 <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56">
                     <img src="rosy 14.jpeg" alt="Recuerdo 14" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 14.jpeg'">
                 </div>
-                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56 col-span-2 md:col-span-1">
-                    <img src="rosy 8.jpeg" alt="Recuerdo 8" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 8.jpeg'">
-                </div>
-
                 <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56">
-                    <img src="rosy 9.jpeg" alt="Recuerdo 9" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 9.jpeg'">
-                </div>
-                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-40 md:h-56 hidden lg:block lg:col-span-2">
                     <img src="rosy 11.jpeg" alt="Recuerdo 11" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 11.jpeg'">
                 </div>
-
-                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-48 md:h-64 col-span-2 md:col-span-3 lg:col-span-2">
+                <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-48 md:h-64 col-span-2 md:col-span-1 lg:col-span-2">
                     <img src="rosy 12.jpeg" alt="Recuerdo 12" class="w-full h-full gallery-img" @click="imgModal = true; imgModalSrc = 'rosy 12.jpeg'">
                 </div>
                 <div class="overflow-hidden rounded-xl shadow-md border-2 border-white h-48 md:h-64 col-span-2 md:col-span-3 lg:col-span-2">
@@ -521,32 +420,6 @@
             document.body.removeChild(el);
         };
 
-        // Efectos Especiales: Mega Lluvia de Rosas y Destellos
-        function generarEfectos() {
-            // 1. Rosas
-            const emojis = ['🌸', '🌺', '🌹', '✨', '🤍']; 
-            setInterval(() => {
-                const p = document.createElement('div');
-                p.className = 'falling-rose';
-                p.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                p.style.left = Math.random() * 100 + 'vw';
-                p.style.fontSize = (Math.random() * 25 + 25) + 'px'; 
-                p.style.animationDuration = (Math.random() * 4 + 4) + 's'; 
-                document.body.appendChild(p);
-                setTimeout(() => p.remove(), 9000); 
-            }, 250); 
-
-            // 2. Destellos Dorados (Nueva magia)
-            setInterval(() => {
-                const s = document.createElement('div');
-                s.className = 'sparkle-effect';
-                s.style.left = Math.random() * 100 + 'vw';
-                s.style.top = Math.random() * 100 + 'vh';
-                document.body.appendChild(s);
-                setTimeout(() => s.remove(), 3000);
-            }, 400);
-        }
-
         // Control de Música (Arranque en Seg 34 con Irresistible)
         const iniciarMusica = () => {
             if (bgMusic && !isPlaying) {
@@ -587,6 +460,8 @@
             return {
                 imgModal: false,
                 imgModalSrc: '',
+                days: '00', hours: '00', minutes: '00', seconds: '00',
+                targetDate: new Date('October 10, 2026 14:15:00').getTime(),
                 
                 initApp() {
                     const params = new URLSearchParams(window.location.search);
@@ -610,7 +485,19 @@
 
                     lucide.createIcons(); 
                     this.setupMusic();
-                    generarEfectos();
+                    this.initTimer();
+                },
+
+                initTimer() {
+                    setInterval(() => {
+                        const now = new Date().getTime();
+                        const distance = this.targetDate - now;
+                        if (distance < 0) return;
+                        this.days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                        this.hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                        this.minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                        this.seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+                    }, 1000);
                 },
 
                 setupMusic() {
